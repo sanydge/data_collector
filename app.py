@@ -5,7 +5,6 @@ from send_email import send_email
 from sqlalchemy.sql import func
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://user:pass@localhost/collector_db1'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://' + os.getenv("DB_USER") + ':' + os.getenv(
     "DB_PASS") + '@' + os.getenv("DB_HOST") + ':' + os.getenv("DB_PORT") + '/' + os.getenv("DB_NAME")
 db = SQLAlchemy(app)
