@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  postgres:
+    image: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "pass"
+      PGDATA: /data/postgres
+    volumes:
+      - db_data:/data/postgres
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  db_data:
